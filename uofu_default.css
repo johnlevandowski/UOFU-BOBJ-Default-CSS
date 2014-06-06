@@ -52,12 +52,12 @@
 /* -------------------------- */
 
 REPORT {
-	page-format-dimension-width:29764;	 /* 21.0cm Printing page width  */  /* Units available: centimeters (cm), millimeters (mm), inches (in), and metric (no unit)   */
-	page-format-dimension-height:42094;  /* 29.7cm */	 /* '...height:1.0in;'  equals  '...height:2.54cm;'  and equals '...height:3600;'  */
-	page-format-margin-top:2835;		/* Printing page margin  */
-	page-format-margin-left:2835;
-	page-format-margin-bottom:2835;
-	page-format-margin-right:2835;
+	page-format-dimension-width:30600;	 /* 21.0cm Printing page width  */  /* Units available: centimeters (cm), millimeters (mm), inches (in), and metric (no unit)   */
+	page-format-dimension-height:39600;  /* 29.7cm */	 /* '...height:1.0in;'  equals  '...height:2.54cm;'  and equals '...height:3600;'  */
+	page-format-margin-top:1800;		/* Printing page margin  */
+	page-format-margin-left:1800;
+	page-format-margin-bottom:1800;
+	page-format-margin-right:1800;
 	page-records-horizontal:20;		/* Number of records displayed in one page in quick display mode (approx., the total number of columns in tables) */
 	page-records-vertical:100;		/* Number of records... The same for rows */
 }
