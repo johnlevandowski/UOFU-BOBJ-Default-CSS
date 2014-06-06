@@ -1,0 +1,457 @@
+/* 
+ * This is the Cascading Style Sheet (CSS) for the default style of Web Intelligence documents.
+ *
+ * To modify the WebI document default style, Download/Upload this CSS from/to your document:
+ *   use the applet or the Rich Client (not the DHTML version) go to "Document Properties" > "Change Default Style".
+ *
+ * To publish a default style as a standard default style to your server or your rich client environment:
+ *    copy this file as <your install folder>\SAP BusinessObjects\SAP BusinessObjects Enterprise XI 4.0\images\WebIDefaultStyleSheet.css
+ *    copy also the referenced images (boimg://xxxxx.png) in the same folder
+ *
+ * To Reset a document default style with the standard default style:
+ *    use the applet or the Rich Client (not the DHTML version) in "Document Properties" > "Change Default Style" > "Reset to the standard default style"
+ *
+ * Version 1.7 08/25/2011 by JCC
+ */
+
+
+/*  Chap.1 : General settings */
+/* -------------------------- */
+
+* {
+	font-family:Arial;
+	font-size:9pt;		/* Units for font size: points (pt) */
+	color:#333333;
+	font-weight-bold:no;
+}
+
+/*  Specific fonts for some langages : The language taken is the document locale */
+*:lang(ja)    { font-family:Gothic;}	/* Japanese */
+*:lang(th)    { font-family:Gothic;}	/* Thai */
+*:lang(ko)    { font-family:Gulim;}   	/* Korean */
+*:lang(zh)    { font-family:MingLiU;}   /* Traditional Chinese */
+*:lang(zh-CN) { font-family:SimSun;}	/* Continental China */
+*:lang(zh-SG) { font-family:SimSun;}	/* Singapore */
+
+*:dir(ltr) { 
+	default-date-h-align: left;
+	default-hierarchy-h-align: left;
+	default-numeric-h-align: right;
+	default-text-h-align: left;
+}
+
+*:dir(rtl) { 
+	default-date-h-align: right;
+	default-hierarchy-h-align: right;
+	default-numeric-h-align: right;
+	default-text-h-align: right;
+}
+
+
+/*  Chap.2 : Report and Areas */
+/* -------------------------- */
+
+REPORT {
+	page-format-dimension-width:29764;	 /* 21.0cm Printing page width  */  /* Units available: centimeters (cm), millimeters (mm), inches (in), and metric (no unit)   */
+	page-format-dimension-height:42094;  /* 29.7cm */	 /* '...height:1.0in;'  equals  '...height:2.54cm;'  and equals '...height:3600;'  */
+	page-format-margin-top:2835;		/* Printing page margin  */
+	page-format-margin-left:2835;
+	page-format-margin-bottom:2835;
+	page-format-margin-right:2835;
+	page-records-horizontal:20;		/* Number of records displayed in one page in quick display mode (approx., the total number of columns in tables) */
+	page-records-vertical:100;		/* Number of records... The same for rows */
+}
+
+/*  Settings for PAGE_BODY  */
+REPORT > PAGE_BODY {
+	background-color:#ffffff;	/* Needed; no background-color attribute in REPORT element */
+	background-fill:color;		/* Possible values: none, color, bitmap, bitmapAndColor, skin */ 
+	min-height:1.40cm;	
+}
+
+/*  Settings for PAGE_HEADER  */
+REPORT > PAGE_HEADER {
+	min-height:1.40cm;
+	background-fill:color;
+	background-color:#ffffff;
+	background-type: htile;		/* Possible values: box(image embedded in its container), tile(repeat horiz. and vert.), vtile, htile(repeat horizontally), stretch(image fits its container) */
+	background-v-align: top;	/* Possible values: top, center, bottom */
+	background-h-align: left;	/* Possible values: left, center, right */
+}
+
+/*  Settings for PAGE_FOOTER  */
+REPORT > PAGE_FOOTER {
+	background-color:#ffffff;
+	background-fill:color;
+	min-height:1.20cm;
+}
+
+/*  Settings for Section  */
+SECTION {
+	font-size:10pt;
+	font-weight-bold:no;
+}
+
+/* The container of the section instances */
+SECTION > BAG {
+	background-fill:color;
+	background-color: #ffffff;
+}
+
+/*  WOB= Wall Of Bricks : The container of the table cell.  */
+WOB, SECTION {
+	h-spacing:0;
+	v-spacing:0;
+}
+
+/*  Chap.3: Tables and Forms  */
+/*----------------------------*/
+/*  Settings for a table  */
+TABLE {
+	background-fill:none;
+	font-size:10pt;
+	font-weight-bold:no;
+    border-top-color:#000000;
+    border-right-color:#000000;
+    border-bottom-color:#000000;		
+    border-left-color:#000000;
+	border-top-width:0;
+ 	border-right-width:0;
+	border-bottom-width:0;
+	border-left-width:0;
+    border-top-style:none;
+    border-right-style:none;
+    border-bottom-style:none;
+    border-left-style:none;
+	h-spacing:0;  /* When table paddings are not given, they take the value of the spacing */
+	v-spacing:0;
+}
+
+VTABLE > AXIS:vertical::alt-style {	/*  Alternate style in vertical tables  */
+	background-color: #f8fbfc;
+	background-fill:color;
+}
+
+HTABLE > AXIS:horizontal::alt-style { /*  Alternate style in horizontal tables  */
+	background-color:#f8fbfc;
+	background-fill:color;
+}
+
+XTABLE > AXIS:vertical::alt-style {
+	background-color:#fcfdfd;  /* Lighter color of horizontal alternate compared to vertical alternate color in crosstables */
+}
+
+/*  Settings for a Form  */
+FORM {
+	background-fill:none;
+	/* The style of a Form is mainly defined by the style of its cells. See the rule "FORM > CELL" */
+}
+
+
+/*  Chap.4: Charts  */
+/*------------------*/
+/* Charts do not support CSS attributes */
+XELEMENT {		/* Today, charts are XELEMENTs. Most attributes are not captured by the charting engine */
+	min-width:15000;
+	min-height:11250;
+}
+
+
+/* Chap.5: Columns and Rows */
+/*--------------------------*/
+
+WOB > COLINFO {		
+	width:2.12cm;	/* Width of tables and form columns */
+}
+
+WOB > ROWINFO {		
+	height:0.40cm;	/* Height of tables and form rows */
+}
+
+COLINFO.ia-break-separator {
+	width:0.40cm;	/*  Break spacing (ex: in horizontal table) */
+}
+
+ROWINFO.ia-break-separator {
+	height:0.40cm;	/*  Break spacing (ex: in vertical table)*/
+}
+
+
+/* Chap 6: Cells */
+/*---------------*/
+
+
+CELL {				/*  Default Settings for all cells. Specific settings are described below */
+	text-v-align:center;	/* top, center, bottom */
+	text-align:auto;		/* left, center, right, auto;  auto= left for text and right for numbers */
+	min-width:2.12cm;
+	min-height:0.40cm;
+	autofit-height:yes;
+	padding-top:0.11cm;
+	padding-right:0.15cm;
+	padding-bottom:0.11cm;
+	padding-left:0.15cm;
+	background-type: htile;
+	background-v-align: top;
+	background-h-align: left;
+	background-color:#ffffff;
+}
+
+
+CELL:lang(zh) {			/*  Settings for free cells (not section cells) for Chinese  */
+	text-v-align:center;
+	text-h-align:right;
+}
+
+
+CELL:lang(ko) {			/*  Settings for free cells (not section cells) for Korean  */
+	text-align:center;
+}
+
+
+BAG > CELL {			/* Any cell in a BAG */
+	border-bottom-width:50;
+	border-bottom-style:plain;
+	font-size:12pt;
+	font-weight-bold:yes;
+}
+
+
+PAGE_HEADER > CELL {		/* Any cell on Page header */
+	border-bottom-width:50;
+	border-bottom-style:plain;
+	font-size:12pt;
+	font-weight-bold:yes;
+}
+
+
+PAGE_FOOTER > CELL {		/* Any cell on Page footer */
+	border-bottom-width:50;
+	border-bottom-style:plain;
+	font-size:12pt;
+	font-weight-bold:yes;
+}
+
+
+PAGE_BODY > CELL {		/* Any cell on Page Body */
+	border-bottom-width:50;
+	border-bottom-style:plain;
+	font-size:12pt;
+	font-weight-bold:yes;
+}
+
+
+CELL.ia-section-cell {		/*  Settings for section cells: different sizes for level 1, 2+ same color */
+	min-width:8010;
+	min-height:900;
+	color:#2B6A97;
+	font-weight-bold:yes;
+	border-bottom-width:0;
+	font-size:9pt;
+}
+
+PAGE_BODY > SECTION > BAG > CELL.ia-section-cell {		/* Section Cell of the FIRST level of a section */
+	font-size:14pt;
+}
+
+/*
+PAGE_BODY > SECTION > BAG > SECTION > BAG > CELL.ia-section-cell {  	 Section Cell of the second level of a section 
+    font-size:12pt;
+}*/
+
+PAGE_BODY > SECTION SECTION > BAG > CELL.ia-section-cell {		/* Section Cell of other levels of a section */
+	font-size:12pt;
+}
+
+CELL.ia-summary-cell {		/* All summary cells */
+	min-width:23976;
+	autofit-height:yes;
+	text-v-align:top;
+	text-align:center;
+	text-wrap:yes;
+	border-top-style:none;
+	border-right-style:none;
+	border-bottom-style:none;
+	border-left-style:none;
+}
+
+CELL.ia-documentname-cell {		/* All document name cells */
+	autofit-width:yes;
+	autofit-height:yes;
+}
+
+CELL.ia-refreshdate-cell {		/* All refresh date cells */
+	autofit-width:yes;
+	autofit-height:yes;
+}
+
+CELL.ia-pagination-cell {		/* All pagination cells */
+	autofit-width:no;
+	min-width:3000;
+	autofit-height:no;
+	min-height:900;
+}
+
+CELL.ia-calculation-label {
+}
+
+
+/* Chap 6a: Table Cells */
+
+
+TABLE > * > CELL {			/*  Settings for cells in a table: especially body cells. Header cells properties will be defined below   */
+	background-color:#FFFFFF;
+	background-fill:color;
+	text-v-align:auto;
+	border-top-color:#ebebeb;
+	border-right-color:#ebebeb;
+	border-bottom-color:#ebebeb;
+	border-left-color:#ebebeb;
+	border-top-width:50;
+	border-right-width:50;
+	border-bottom-width:50;
+	border-left-width:50;
+	border-top-style:plain;
+	border-right-style:plain;
+	border-bottom-style:plain;
+	border-left-style:plain;
+	padding-top:220;
+	padding-right:250;
+	padding-bottom:230;
+	padding-left:250;
+}
+
+/*  Settings for cells in a table for Japanese, Korean, and Chinese */
+TABLE > * > CELL:lang(ja), TABLE > * > CELL:lang(ko), TABLE > * > CELL:lang(zh) {
+	font-size:10pt;
+}
+
+
+TABLE > :zone(header) > CELL {		/*  Settings for header cells in a table  */
+	font-weight-bold:yes;
+	color:#FFFFFF;
+	background-fill:bitmapAndColor;
+	background-color:#0b64a0;  /* Color used also for DHTML as basis for selection feedback interpolation */
+	background-image: boimg://TopHeaderBlue.png;
+	border-top-color: #3877a6;
+	border-right-color: #3877a6;
+	border-bottom-color:#A5A5B1;
+	border-left-color: #3877a6;
+
+}
+
+TABLE > :zone(v-header) > CELL {		/*  Settings for header of columns  */
+	padding-top:300;
+	padding-bottom:350;
+}
+
+TABLE > :zone(h-header) > CELL {		/*  Settings for header of lines  */
+	background-fill:bitmapAndColor;
+	background-image: boimg://LeftHeaderBlue.png;
+	border-top-color: #3877a6;
+	border-right-color:#09558f;
+	border-bottom-color: #3877a6;
+	border-left-color: #3877a6;
+}
+
+/*  Settings for v-header AND h-header cell in a table (top left corner of a cross table)  */
+TABLE > :zone(v-header):zone(h-header) > CELL {
+	color:#333333;    /* Writes in dark grey if user puts text in header/header */
+	font-weight-bold:no;
+	background-fill:none;
+	border-top-style:none;
+	border-right-style:none;
+	border-bottom-style:none;
+	border-left-style:none;
+}
+
+TABLE > :zone(header) > CELL.ia-extra-header {
+	font-weight-bold:yes;
+	color:#333333;
+	background-color:#FFFFFF;
+	background-fill:color;
+	border-top-color:#ebebeb;
+	border-right-color:#ebebeb;
+	border-bottom-color:#ebebeb;
+	border-left-color:#ebebeb;
+	border-top-width:50;
+	border-right-width:50;
+	border-bottom-width:50;
+	border-left-width:50;
+	border-top-style:plain;
+	border-right-style:plain;
+	border-bottom-style:plain;
+	border-left-style:plain;
+	padding-top:220;
+	padding-right:250;
+	padding-bottom:230;
+	padding-left:250;
+}
+
+
+TABLE > :zone(footer) > CELL {		/*  Settings for footer cells in a table  */
+	color:#333333;
+	font-weight-bold:yes;
+	border-top-color:#CAC9D9;
+}
+
+TABLE > :zone(footer) > CELL.ia-break-separator {    /* Cells between breaks  */
+	background-fill:none;		/* Invisible. */
+	border-top-style:none;
+	border-right-style:none;
+	border-bottom-style:none;
+	border-left-style:none;
+	border-top-width:0;
+	border-right-width:0;
+	border-bottom-width:0;
+	border-left-width:0;
+	min-width:0.40cm;			/* Cells' dimension gives the space between breaks */
+	min-height:0.40cm;
+}
+
+
+/* Chap 6b: Form Cells */
+
+
+FORM CELL {					/*  Settings for body cells in a form  */
+	background-color:#FFFFFF;
+	background-fill:color;
+	border-top-color:#CAC9D9;
+	border-right-color:#CAC9D9;
+	border-bottom-color:#CAC9D9;
+	border-left-color:#CAC9D9;
+	border-top-width:50;
+	border-right-width:50;
+	border-bottom-width:50;
+	border-left-width:50;
+	border-top-style:plain;
+	border-right-style:plain;
+	border-bottom-style:plain;
+	border-left-style:plain;
+	padding-top:250;
+	padding-right:250;
+	padding-bottom:250;
+	padding-left:250;
+}
+
+
+FORM CELL.ia-form-header {	/*  Settings for header cells in a form  */
+	background-fill:color;
+	font-size:9pt;
+	color:#1D7DB3;
+	background-color:#f8fbfc;
+	font-weight-bold:yes;
+	never-alternate:yes;
+}
+
+CELL.ia-form-separator {   	/* Settings for cells separating two form instances */
+	background-fill:none;	/* Invisible cell making the separation */
+	border-top-style:none;
+	border-right-style:none;
+	border-bottom-style:none;
+	border-left-style:none;
+	border-top-width:0;
+	border-right-width:0;
+	border-bottom-width:0;
+	border-left-width:0;
+}
